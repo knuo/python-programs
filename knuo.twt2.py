@@ -12,7 +12,7 @@ CONSUMER_SECRET = 'f2vXDmGsT6ziOHjrpNhqsMYJYmC8JOorpoRogGjbYC2OxqVfam'
 ACCESS_TOKEN_KEY = '4100867894-bN3LXrdd6xhipQejjh4YOYK4r3wR3pQVUUf118h'
 ACCESS_TOKEN_SECRET = 'VQNFzY8ODVTfPpaRSvhpSUZiisTlvhy3L3SWB2HHur1qw'
 api = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
-#giving required details
+#giving required details of twitter account
 
 while True:
     if pir.motion_detected:
@@ -22,9 +22,10 @@ while True:
         #command to take a pic
         os.system(cmd)
         print("pic taken")
+        #open file
         file = open(img, 'rb')
       data = file.read()
-      #creating a function to loop
+      #creating a function to tweet
         r = api.request('statuses/update_with_media', {'status':'#pyTweetCMR'}, {'media[]':data})
         print(r.status_code)
         
